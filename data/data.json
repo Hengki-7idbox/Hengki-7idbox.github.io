@@ -1,0 +1,65 @@
+[
+    {
+        "skill": "Finance & Accounting"
+    },
+    {
+        "skill": "Microsoft Excel"
+    },
+    {
+        "skill": "Microsoft Access"
+    }, 
+    {
+        "skill": "HTML"
+    }, 
+    {
+        "skill": "CSS"
+    }, 
+    {
+        "skill": "Bootstrap"
+    }, 
+    {
+        "skill": "Codeigniter 3"
+    }, 
+    {
+        "skill": "PHP"
+    }, 
+    {
+        "skill": "Javascript"
+    }, 
+    {
+        "skill": "Mysql"
+    }, 
+    {
+        "skill": "Python"
+    }, 
+    {
+        "skill": "C++"
+    }, 
+    {
+        "skill": "Arduino"
+    }, 
+    {
+        "skill": "ESP8266"
+    }, 
+    {
+        "skill": "ESP32"
+    }, 
+    {
+        "skill": "Autodesk Inventor"
+    }, 
+    {
+        "skill": "Eagle Autodesk"
+    }, 
+    {
+        "skill": "Sketchup"
+    }, 
+    {
+        "skill": "Coreldraw"
+    }, 
+    {
+        "skill": "PhotoShop"
+    }, 
+    {
+        "skill": "Etc"
+    }
+]

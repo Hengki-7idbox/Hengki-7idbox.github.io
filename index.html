@@ -13,10 +13,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- FAV AND ICONS   -->
-    <link rel="shortcut icon" href="./images/favicon.png">
-    <link rel="shortcut icon" href="./images/favicon.png">
-    <link rel="shortcut icon" sizes="72x72" href=./images/favicon.png"> <link rel="shortcut icon" sizes="114x114"
-        href="./images/favicon.png">
+    <!-- <link rel="shortcut icon" href="./images/favicon.png"> -->
+    <!-- <link rel="shortcut icon" href="./images/favicon.png"> -->
+    <link rel="shortcut icon" sizes="72x72" href="./images/favicon.png">
+    <link rel="shortcut icon" sizes="114x114" href="./images/favicon.png">
 
     <!-- Google Font-->
     <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -34,6 +34,7 @@
     <!-- Custom CSS-->
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
+    <!-- <link rel="stylesheet" href="./data/data.json"> -->
 
     <!-- Colors -->
     <link rel="alternate stylesheet" href="assets/css/colors/blue.css" title="blue">
@@ -44,6 +45,31 @@
     <link rel="alternate stylesheet" href="assets/css/colors/purple.css" title="purple">
     <link rel="alternate stylesheet" href="assets/css/colors/slate.css" title="slate">
     <link rel="alternate stylesheet" href="assets/css/colors/yellow.css" title="yellow">
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+        axios.get('./data/data.json')
+            .then(function (response) {
+                console.log(response.data);
+                var myData = response.data;
+                // Menampilkan data pada halaman HTML
+                var container = document.getElementById("container");
+                myData.forEach(function (item) {
+                    var div = document.createElement("li");
+                    div.innerHTML = "<span>"+item.skill+"</span>" ;
+                    container.appendChild(div);
+                });
+            })
+            .catch(function (error) {
+                console.error(error);
+            });
+    </script>
+
+
+
+
+
 
 </head>
 
@@ -186,7 +212,8 @@
                             mahir dalam hal berikut:</p>
                         <div class="mh-about-tag wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
                             <ul>
-                                <li><span>Microsoft Excel</span></li>
+                                <div id="container"></div>
+                                <!-- <li><span>Microsoft Excel</span></li>
                                 <li><span>Microsoft Access</span></li>
                                 <li><span>Html</span></li>
                                 <li><span>Css</span></li>
@@ -205,7 +232,7 @@
                                 <li><span>Sketchup</span></li>
                                 <li><span>Coreldraw</span></li>
                                 <li><span>Photoshop</span></li>
-                                <li><span>Etc</span></li>
+                                <li><span>Etc</span></li> -->
                             </ul>
                         </div>
                         <a href="./assets/file/CV & Cover Letter-HKY 20220714-1.pdf" target="_blank"
@@ -1320,9 +1347,10 @@
                                                 placeholder="Your Message"></textarea>
                                         </div>
 
-                                        
+
                                         <div class="btn-form col-sm-12">
-                                            <button" class="btn btn-fill btn-block" type="submit" id="kirim" name="kirim">Send
+                                            <button" class="btn btn-fill btn-block" type="submit" id="kirim"
+                                                name="kirim">Send
                                                 Message</button>
                                         </div>
                                     </div>
@@ -1355,6 +1383,7 @@
                 </div>
             </div>
         </div>
+        <div id="dataContainer">xxx</div>
     </footer>
 
     <!--
@@ -1386,13 +1415,13 @@
     <!-- Fancybox js-->
     <script src="assets/plugins/js/jquery.fancybox.min.js"></script>
     <!-- Map api -->
-    <script src="http://maps.googleapis.com/maps/api/js?v=3.exp&amp;key=AIzaSyCRP2E3BhaVKYs7BvNytBNumU0MBmjhhxc">
+    <!-- <script src="http://maps.googleapis.com/maps/api/js?v=3.exp&amp;key=AIzaSyCRP2E3BhaVKYs7BvNytBNumU0MBmjhhxc"> -->
     </script>
     <!-- isotope js-->
     <script src="assets/plugins/js/isotope.pkgd.js"></script>
     <script src="assets/plugins/js/packery-mode.pkgd.js"></script>
     <!-- Custom Scripts-->
-    <script src="assets/js/map-init.js"></script>
+    <!-- <script src="assets/js/map-init.js"></script> -->
     <script src="assets/js/custom-scripts.js"></script>
 
 
@@ -1401,9 +1430,9 @@
       JavaScript/jQuery according to http://browserdiet.com/en/ for better performance
     **************** -->
     <!-- STYLE SWITCH STYLESHEET ONLY FOR DEMO -->
-    <link rel="stylesheet" href="demo/demo.css">
+    <!-- <link rel="stylesheet" href="demo/demo.css">
     <script type="text/javascript" src="demo/styleswitcher.js"></script>
-    <script type="text/javascript" src="demo/demo.js"></script>
+    <script type="text/javascript" src="demo/demo.js"></script> -->
 
     <!-- ============================================================================== -->
     <script>
@@ -1506,7 +1535,7 @@
                 alert("Semua Kolom Pesan Harus Di Isi !!!");
                 return false;
             }else{
-                            const dbref = ref(db);
+            const dbref = ref(db);
             get(child(dbref, "id_Pesan"))
             .then((snapshot)=>{
                 // let num = parseInt(1);
@@ -1537,7 +1566,7 @@
                                 Pesan_Pengunjung.value = "",
 
 
-                                alert("Pesan Anda Berhasil Terkirim, Mohon Menunggu Balasan Dari Hengki.");
+                                alert("Pesan Anda Berhasil Terkirim, Mohon Menunggu Balasan Dari Hengki atau jika Urgent Bisa Whatsapp ke  0897 9760 477.");
                             })
                             .catch((error)=>{
                                 alert(error);
@@ -1558,9 +1587,7 @@
             .catch((error)=>{
                 alert(error)
             })
-
             }
-
         };
 
         BtnKirim.addEventListener('click', kirim_pesan);
@@ -1571,6 +1598,7 @@
 
 
     </script>
+
 
 
     <!-- ============================================================================== -->
